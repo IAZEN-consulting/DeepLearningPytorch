@@ -1,0 +1,26 @@
+# Bibliothèques utilisées par les démos et les TP, figées sur les versions du runtime Google Colab.
+# Dans Colab, les paquets déjà présents avec la bonne version ne sont pas réinstallés :
+#   %pip install uv
+#   !uv pip install --system -r requirements-colab.txt
+# torch et torchvision sont ceux de Colab (build CUDA 12.8) : ==2.11.0 accepte 2.11.0+cu128.
+# Relevé sur le runtime GPU A100 le 25/09/2026 : Python 3.12.13, toutes les versions ci-dessous déjà présentes.
+torch==2.11.0
+torchvision==0.26.0
+numpy==2.1.3
+matplotlib==3.10.0
+pillow==11.3.0
+scikit-learn==1.6.1
+# pandas 2.2.2 n'a pas de wheel Python 3.13 (compilation depuis les sources en échec) : 2.2.3 est la première qui en a une.
+pandas==2.2.2; python_version < "3.13"
+pandas==2.2.3; python_version >= "3.13"
+# pyarrow : lecture des fichiers parquet des radiographies (déjà présent dans Colab).
+pyarrow>=14
+tensorboard==2.21.0
+# torchviz : dessin du graphe de calcul (démo 1) ; s'appuie sur le paquet graphviz et le programme dot.
+torchviz==0.0.3
+# Jour 3 (export et déploiement), absents du runtime Colab
+onnx==1.23.0
+onnxruntime==1.30.0
+onnxscript==0.7.2
+torchserve==0.12.0
+torch-model-archiver==0.12.0
